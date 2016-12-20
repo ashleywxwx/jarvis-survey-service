@@ -1,0 +1,11 @@
+{
+  "name": "jarvis-application-service",
+  "version": "1.0.0",
+  "description": "REST service for Applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "andrew@recursivechaos.com",
+  "license": "MIT"
+}
