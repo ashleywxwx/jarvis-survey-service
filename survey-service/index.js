@@ -20,11 +20,17 @@ router.use(function(req, res, next) {
   // Logging \o/
   console.log('Request received:', req.method, req.originalUrl);
   next();
-})
+});
 
 // Configure Routes
-router.get('/', function(req, res) {
-  res.json({ message: 'Hello World!'});
+router.route('/status')
+  .get(function(req, res) {
+    if(mongoose.connection.readyState == 1) {
+      res.json({ message: 'OK'});
+    } else {
+      console.log("Database not ready: ", mongoose.connection.readyState)
+      res.status(503).json({ message: 'Unable to access db.'})
+    }
 });
 
 router.route('/surveys')
@@ -95,7 +101,7 @@ router.route('/surveys/:id')
 
         res.json({ message: req.params.id + " deleted."})
     })
-  })
+  });
 
 // Register Routes
 app.use('/api/v1', router);
