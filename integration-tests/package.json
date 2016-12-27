@@ -12,6 +12,8 @@
     "request": "^2.79.0"
   },
   "devDependencies": {
-    "jasmine-node": "^1.14.5"
+    "jasmine": "^2.5.2",
+    "jasmine-node": "^1.14.5",
+    "jasmine-spec-reporter": "^2.7.0"
   }
 }
