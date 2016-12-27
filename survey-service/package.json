@@ -1,5 +1,5 @@
 {
-  "name": "jarvis-application-service",
+  "name": "jarvis-survey-service",
   "version": "1.0.0",
   "description": "REST service for Applications",
   "main": "index.js",
