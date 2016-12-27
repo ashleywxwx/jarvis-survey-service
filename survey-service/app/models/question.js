@@ -8,8 +8,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var SurveySchema = new Schema({
-  name: String
+var QuestionSchema = new Schema({
+  question: String
 });
 
-module.exports = mongoose.model('Survey', SurveySchema);
+module.exports = mongoose.model('Question', QuestionSchema);
