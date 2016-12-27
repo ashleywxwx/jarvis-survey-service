@@ -49,7 +49,6 @@ router.route('/applications')
       if (err)
         res.send(err);
 
-        //res.json({ message: 'Ding'});
       res.json(applications);
     })
   });
