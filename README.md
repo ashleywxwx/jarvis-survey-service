@@ -13,5 +13,9 @@ Provides a REST API for creating and managing surveys
 1. Run `mongod`
 2. Run `npm start`
 
-## Docker ##
+## Integration Tests ##
+
+1. `docker-compose -f docker-compose.test.yml up --build`
+
+## Docker Deploy ##
 1. `docker-compose up`

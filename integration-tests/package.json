@@ -1,0 +1,17 @@
+{
+  "name": "jarvis-integration-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine-node spec/"
+  },
+  "author": "andrew@recursivechaos.com",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.79.0"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  }
+}

@@ -1,10 +1,10 @@
 version: '2'
 services:
-  pending-service:
+  survey-service:
     build: ./survey-service
     image: recursivechaos/survey-service
     ports:
-      - "8080:8080"
+      - "3000:3000"
     links:
     - "mongo"
   mongo:
