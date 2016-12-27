@@ -1,3 +1,10 @@
+/**
+ * Created by Andrew Bell 12/26/2016
+ * www.recursivechaos.com
+ * andrew@recursivechaos.com
+ * Licensed under MIT License 2016. See license.txt for details.
+ */
+
 var express = require('express');
 var mongoose = require('mongoose');
 var app = express();
@@ -13,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 var Survey = require('./app/models/survey');
 
 // Connect to db
-mongoose.connect('mongodb://localhost:27017/jarvis-db');
+mongoose.connect('mongodb://mongo:27017/jarvis-db');
 
 // Middleware - All Requests
 router.use(function(req, res, next) {
@@ -28,8 +35,8 @@ router.route('/status')
     if(mongoose.connection.readyState == 1) {
       res.json({ message: 'OK'});
     } else {
-      console.log("Database not ready: ", mongoose.connection.readyState)
-      res.status(503).json({ message: 'Unable to access db.'})
+      console.log("Database not ready: ", mongoose.connection.readyState);
+      res.status(503).json({ message: 'Unable to access db.'});
     }
 });
 
@@ -56,7 +63,7 @@ router.route('/surveys')
         res.send(err);
 
       res.json(surveys);
-    })
+    });
   });
 
 router.route('/surveys/:id')
@@ -66,8 +73,8 @@ router.route('/surveys/:id')
       if (err)
         res.send(err);
 
-      res.json(survey)
-    })
+      res.json(survey);
+    });
   })
 
   // Update Survey with that ID
@@ -87,9 +94,9 @@ router.route('/surveys/:id')
           res.send(err);
 
         res.json(survey);
-      })
+      });
 
-    })
+    });
   })
   // Delete survey
   .delete(function (req, res) {
@@ -99,8 +106,8 @@ router.route('/surveys/:id')
       if (err)
         res.send(err);
 
-        res.json({ message: req.params.id + " deleted."})
-    })
+        res.json({ message: req.params.id + " deleted."});
+    });
   });
 
 // Register Routes
