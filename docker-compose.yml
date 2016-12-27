@@ -1,0 +1,15 @@
+version: '2'
+services:
+  pending-service:
+    build: ./survey-service
+    image: recursivechaos/survey-service
+    ports:
+      - "8080:8080"
+    links:
+    - "mongo"
+  mongo:
+    image: mongo
+    volumes:
+    - "./data:/data"
+    ports:
+    - "27017:27017"
