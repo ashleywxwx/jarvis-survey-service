@@ -5,6 +5,8 @@ services:
     image: recursivechaos/survey-service
     ports:
       - "3000:3000"
+    environment:
+      - ENV=DOCKER
     links:
     - mongo
   mongo:

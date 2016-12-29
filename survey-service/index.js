@@ -13,6 +13,7 @@ var bodyParser = require('body-parser');
 // App Configuration
 var port = process.env.PORT || 3000;
 var router = express.Router();
+
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
@@ -20,7 +21,11 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 var Survey = require('./app/models/survey');
 
 // Connect to db
-mongoose.connect('mongodb://mongo:27017/jarvis-db');
+if (process.env.ENV == "DOCKER" ) {
+  mongoose.connect('mongodb://mongo:27027/jarvis-db');
+} else {
+  mongoose.connect('mongodb://localhost:27017/jarvis-db');
+}
 
 // Middleware - All Requests
 router.use(function(req, res, next) {
@@ -49,10 +54,13 @@ router.route('/surveys')
 
     // save the Survey and check for errors
     survey.save(function(err)  {
-      if (err)
+      if (err) {
+        console.log("Unable to save survey", err);
         res.send(err);
+      };
 
-      res.json(survey);
+      console.log("New survey created: ", survey);
+      res.status(201).json(survey);
     });
   })
   // Get all surveys

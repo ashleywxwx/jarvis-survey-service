@@ -1,5 +1,7 @@
 sut:
   build: ./integration-tests
+  environment:
+    - ENV=DOCKER
   links:
     - survey-service
 survey-service:
