@@ -6,17 +6,22 @@ describe("Survey service", function() {
 
     it("Should be true", function(done) {
       console.log("Hello world");
-      expect(true).toBe(false);
+      expect(true).toBe(true);
       done();
     });
 
-    it("should return status OK", function(done) {
-      request.get(base_url+ "status", function(error, response, body) {
+    it("Should return a 200 OK", function(done) {
+      console.log("Sending request...");
+      request.get(base_url + "status", function(error, response, body) {
+        if (error)
+          console.log("Something borked: ", error);
+
         console.log("Response body: " + body);
         expect(response.statusCode).toBe(666);
-        expect(body).toBe("{'message':'This should be failing'}");
+        expect(body).toBe("{'message':'Foo'}");
         done();
       });
     });
+
   });
 });
