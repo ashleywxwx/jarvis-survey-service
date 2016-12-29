@@ -4,12 +4,6 @@ var base_url = "http://survey-service:3000/api/v1/"
 describe("Survey service", function() {
   describe("when getting service status", function() {
 
-    it("Should be true", function(done) {
-      console.log("Hello world");
-      expect(true).toBe(true);
-      done();
-    });
-
     it("Should return a 200 OK", function(done) {
       console.log("Sending request...");
       request.get(base_url + "status", function(error, response, body) {
