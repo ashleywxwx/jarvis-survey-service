@@ -11,8 +11,8 @@ describe("Survey service", function() {
           console.log("Something borked: ", error);
 
         console.log("Response body: " + body);
-        expect(response.statusCode).toBe(666);
-        expect(body).toBe("{'message':'Foo'}");
+        expect(response.statusCode).toBe(200);
+        expect(body).toBe('{"message":"OK"}');
         done();
       });
     });
